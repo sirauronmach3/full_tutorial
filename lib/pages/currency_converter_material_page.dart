@@ -5,14 +5,55 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    const Color input = Colors.black87;
+    final OutlineInputBorder border = OutlineInputBorder(
+      borderSide: const BorderSide(
+        color: Colors.red,
+        width: 2.0,
+      ),
+      borderRadius: BorderRadius.circular(40.0),
+    );
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
       body: Center(
-        child: Text(
-          "Hello World!",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
+              color: Colors.black,
+              child: const Text(
+                "Hello World!",
+                style: TextStyle(
+                  fontSize: 55,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: "Enter currency to be converted in USD",
+                  hintStyle: const TextStyle(color: input),
+                  prefixIcon: const Icon(
+                    Icons.monetization_on,
+                  ),
+                  prefixIconColor: input,
+                  focusedBorder: border,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
